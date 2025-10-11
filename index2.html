@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mini YouTube Viewer</title>
+<style>
+  body { font-family: sans-serif; padding: 20px; }
+  input, button { padding: 8px; margin-right: 8px; }
+  #results img { cursor: pointer; width: 160px; margin: 5px; }
+  #player { margin-top: 20px; width: 560px; height: 315px; }
+</style>
+</head>
+<body>
+<h1>Mini YouTube Viewer</h1>
+<input id="search" placeholder="Search YouTube...">
+<button onclick="searchVideos()">Search</button>
+
+<div id="results"></div>
+<div id="player"></div>
+
+<script>
+const API_KEY = 'AIzaSyBCDRtn61h-6hYwKZs3oiiBG93WD5K6QMs';
+
+async function searchVideos() {
+  const query = document.getElementById('search').value;
+  const res = await fetch(
+    `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=${encodeURIComponent(query)}&key=${API_KEY}&maxResults=5`
+  );
+  const data = await res.json();
+  const resultsDiv = document.getElementById('results');
+  resultsDiv.innerHTML = '';
+  data.items.forEach(item => {
+    const img = document.createElement('img');
+    img.src = item.snippet.thumbnails.default.url;
+    img.title = item.snippet.title;
+    img.onclick = () => playVideo(item.id.videoId);
+    resultsDiv.appendChild(img);
+  });
+}
+
+function playVideo(videoId) {
+  const playerDiv = document.getElementById('player');
+  playerDiv.innerHTML = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>`;
+}
+</script>
+</body>
+</html>

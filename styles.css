@@ -1,0 +1,51 @@
+.frame{
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+    background-color: #f9f9f9;
+    width:350px;
+    height:200px;
+}
+h1{
+    font-size: 24px;  
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 40px;
+    font-family: 'arail', sans-serif;
+}
+    
+p{
+    font-size: 20px;
+    color: #333;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+.line{
+    font-size: 15px;
+    display: block;
+}
+.head{
+    font-size: 17px;
+    display: block;
+}
+.frame img{
+  width:300px;
+  height:150px;
+  margin:0 auto;
+  display:block;
+  border-radius: 20px;
+}
+a {
+  text-decoration: none; /* remove underline */
+  color: inherit;        /* keep text color same */
+  display: block;        /* makes the link cover full area */
+}
+
+#container {
+  display: flex;
+  flex-wrap: wrap;              /* allows new rows */
+  justify-content: center;      /* centers the row */
+  gap: 20px;                    /* space between cards */
+}
