@@ -16,3 +16,14 @@ p{
 #yt_url{
   color:blue;
 }
+button{
+  display: block;
+  margin-left:100px;
+  margin-top: 30px;
+  background-color: rgb(15, 3, 57);
+  color: white;
+  border-radius: 7px;
+  padding: 10px;
+  font-size: 15px;
+  width:100px
+}
